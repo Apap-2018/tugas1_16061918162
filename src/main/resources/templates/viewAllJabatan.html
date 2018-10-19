@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<title>Lihat Semua Jabatan</title>
+<object th:include="fragments/fragment :: css" th:remove="tag"></object>
+<object th:include="fragments/fragment :: js" th:remove="tag"></object>
+</head>
+
+<body>
+	<nav th:replace="fragments/fragment :: navbar"></nav>
+	<table id="jabatan">
+		<thead>
+			<tr>
+				<th>Nama</th>
+				<th>Deskripsi</th>
+				<th>Gaji Pokok</th>
+			</tr>
+		</thead>
+		<body>
+		<tr th:each="jabatan: ${listJabatan}">
+			<td th:text="${jabatan.nama}"></td>
+			<td th:text="${jabatan.deskripsi}"></td>
+			<td th:text="${jabatan.gajiPokok}"></td>
+		</tr>
+</body>
+</table>
+</body>
+	<script>
+			$(document).ready(function () {
+			    $('#jabatan').DataTable();
+			});	
+	</script>
+</html>
