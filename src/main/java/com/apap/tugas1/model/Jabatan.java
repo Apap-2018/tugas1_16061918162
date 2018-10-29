@@ -21,25 +21,39 @@ public class Jabatan implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	@NotNull
 	@Size(max = 255)
 	@Column(name = "nama", nullable = false)
 	private String nama;
-	
+
 	@NotNull
 	@Size(max = 255)
 	@Column(name = "deskripsi", nullable = false)
 	private String deskripsi;
-	
+
 	@NotNull
 	@Column(name = "gaji_pokok", nullable = false)
 	private double gajiPokok;
-	
+
 	@ManyToMany(fetch = FetchType.LAZY,
-				cascade = {CascadeType.PERSIST, CascadeType.MERGE},
-				mappedBy = "jabatanList")
+			cascade = {CascadeType.PERSIST, CascadeType.MERGE},
+			mappedBy = "jabatanList")
 	private List<Pegawai> pegawaiList;
+
+	public int jabatanSize() {
+		return pegawaiList.size();
+	}
+
+	private int jumlahPegawai;
+
+	public void setSizePegawai(int jumlahPegawai) {
+		this.jumlahPegawai = jumlahPegawai;
+	}
+
+	public int getJumlahPegawai() {
+		return jumlahPegawai = jumlahPegawai;
+	}
 
 	public long getId() {
 		return id;

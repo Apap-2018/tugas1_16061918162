@@ -8,4 +8,5 @@ import com.apap.tugas1.model.Pegawai;
 public interface PegawaiService {
 	Pegawai getPegawaiDetailByNip(String nip);
 	void searchPegawai(long id);
+	void addPegawai(Pegawai pegawai);
 }

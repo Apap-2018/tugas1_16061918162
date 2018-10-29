@@ -1,6 +1,7 @@
 package com.apap.tugas1.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -60,9 +61,14 @@ public class JabatanController {
 		return "hapusJabatan";
 	}
 	
-	@RequestMapping(value = "/jabatan/viewall")
-	public String viewAll(Model model) {
-		model.addAttribute("listJabatan", jabatanService.getListJabatan());
-		return "viewAllJabatan";
-	}
+	@RequestMapping(value = "/jabatan/viewall", method = RequestMethod.GET)
+	 public String viewAllJabatan(Model model) {
+	  List<Jabatan> listJabatan = jabatanService.getListJabatan();
+	  for(Jabatan jabatan: listJabatan) {
+	   jabatan.setSizePegawai(jabatan.jabatanSize());
+	  }
+	  model.addAttribute("listJabatan", listJabatan);
+	  return "viewAllJabatan";
+	 }
+	
 }
