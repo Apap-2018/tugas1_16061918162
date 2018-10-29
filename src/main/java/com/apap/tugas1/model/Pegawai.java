@@ -78,7 +78,7 @@ public class Pegawai implements Serializable{
 	public void setInstansi(Instansi instansi) {
 		this.instansi = instansi;
 	}
-
+	
 	public List<Jabatan> getJabatanList() {
 		return jabatanList;
 	}

@@ -9,4 +9,5 @@ public interface PegawaiService {
 	Pegawai getPegawaiDetailByNip(String nip);
 	void searchPegawai(long id);
 	void addPegawai(Pegawai pegawai);
+	double getGaji(String nip);
 }

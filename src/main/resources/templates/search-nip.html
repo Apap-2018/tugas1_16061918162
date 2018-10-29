@@ -22,8 +22,18 @@
 						<p th:text="'Tempat Lahir			: '+ ${pegawai.tempatLahir}"></p>
 						<p th:text="'Tanggal Lahir			: '+ ${pegawai.tanggalLahir}"></p>
 						<p th:text="'Tahun Masuk			: '+ ${pegawai.tahunMasuk}"></p>
-
+						<p th:text="'Jabatan		: '"></p>
+						<ul th:each="jabatan : ${jabatanList}">
+							<li><p th:text="${jabatan.nama}"></p></li>
+						</ul>
+						<p th:text="'Gaji		: Rp' + ${gajiLengkap}"></p>
 					</div>
+					<form th:action="@{/pegawai/ubah}" method="GET">
+						<label for="nip">Masukkan Nomor Induk Pegawai</label> <br> <input
+							class="form-control" type="hidden" th:field="*{pegawai.nip}" />
+						<br>
+						<button type="submit" class="btn btn-primary">Ubah</button>
+					</form>
 				</div>
 			</div>
 		</div>
